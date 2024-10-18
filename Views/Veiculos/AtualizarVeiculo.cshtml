@@ -81,9 +81,9 @@
 
         <!-- Cor -->
         <div class="form-group">
-            @Html.LabelFor(model => model.Cor, htmlAttributes: new { @class = "control-label col-md-2" })
+            @Html.LabelFor(model => model.Cor, "Cor", htmlAttributes: new { @class = "control-label col-md-2" }) <!-- Alterei para CorId -->
             <div class="col-md-10">
-                @Html.EditorFor(model => model.Cor, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.DropDownListFor(model => model.Cor, (IEnumerable<SelectListItem>)ViewBag.CorList, "Selecione a cor", new { @class = "form-control" }) <!-- Dropdown para Cor -->
                 @Html.ValidationMessageFor(model => model.Cor, "", new { @class = "text-danger" })
             </div>
         </div>

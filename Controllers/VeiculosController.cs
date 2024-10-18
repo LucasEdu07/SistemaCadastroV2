@@ -15,12 +15,14 @@ namespace SistemaCadastro.Controllers
     {
         private VeiculosRepo _repositorio;
         private CombustivelRepo _combustivelRepo;
+        private CorRepo _corRepo; // Adicionei o repositório de cores
 
         // Construtor que inicializa os repositórios
         public VeiculosController()
         {
             _repositorio = new VeiculosRepo(); // Usando o construtor padrão
             _combustivelRepo = new CombustivelRepo(); // Ajuste conforme necessário
+            _corRepo = new CorRepo(); // Inicialize o repositório de cores
         }
 
         public ActionResult ObterVeiculos()
@@ -168,6 +170,13 @@ namespace SistemaCadastro.Controllers
             {
                 Value = c.Nome, // Aqui, você deve usar o ID do combustível
                 Text = c.Nome   // O texto mostrado ao usuário
+            });
+
+            // Carregar a lista de cores
+            ViewBag.CorList = _corRepo.GetAll().Select(c => new SelectListItem
+            {
+                Value = c.NomeCor, // Use o ID da cor
+                Text = c.NomeCor           // O texto mostrado ao usuário
             });
 
             ViewBag.StatusList = new List<SelectListItem>

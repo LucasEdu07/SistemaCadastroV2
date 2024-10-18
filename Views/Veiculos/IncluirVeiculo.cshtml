@@ -16,6 +16,7 @@
         <hr />
         @Html.ValidationSummary(true, "", new { @class = "text-danger" })
 
+        <!-- Placa -->
         <div class="form-group">
             @Html.LabelFor(model => model.Placa, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
@@ -24,6 +25,7 @@
             </div>
         </div>
 
+        <!-- Renavam -->
         <div class="form-group">
             @Html.LabelFor(model => model.Renavam, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
@@ -32,6 +34,7 @@
             </div>
         </div>
 
+        <!-- Chassi -->
         <div class="form-group">
             @Html.LabelFor(model => model.Chassi, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
@@ -40,6 +43,7 @@
             </div>
         </div>
 
+        <!-- Motor -->
         <div class="form-group">
             @Html.LabelFor(model => model.Motor, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
@@ -48,6 +52,7 @@
             </div>
         </div>
 
+        <!-- Marca -->
         <div class="form-group">
             @Html.LabelFor(model => model.Marca, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
@@ -56,6 +61,7 @@
             </div>
         </div>
 
+        <!-- Modelo -->
         <div class="form-group">
             @Html.LabelFor(model => model.Modelo, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
@@ -73,14 +79,16 @@
             </div>
         </div>
 
+        <!-- Dropdown para Cor -->
         <div class="form-group">
-            @Html.LabelFor(model => model.Cor, htmlAttributes: new { @class = "control-label col-md-2" })
+            @Html.LabelFor(model => model.Cor, "Cor", htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.TextBoxFor(model => model.Cor, new { @class = "form-control" })
-                @Html.ValidationMessageFor(model => model.Cor, "", new { @class = "text-danger" })
+                @Html.DropDownList("Cor", (IEnumerable<SelectListItem>)ViewBag.CorList, "Selecione a cor", new { @class = "form-control" })
+                @Html.ValidationMessage("Cor", "", new { @class = "text-danger" })
             </div>
         </div>
 
+        <!-- Ano -->
         <div class="form-group">
             @Html.LabelFor(model => model.Ano, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
@@ -98,6 +106,7 @@
             </div>
         </div>
 
+        <!-- Botões de ação -->
         <div class="form-group">
             <div class="col-md-offset-2 col-md-10">
                 <input type="submit" value="Salvar" class="btn btn-success" />
