@@ -1,0 +1,27 @@
+Na pasta BD_Application foi adicionado o Script para criação do Banco e disponibilizado o Backup do BD Veiculos para operar com os dados já criados. 
+
+Configurações para o banco, conforme a connectionStrings:
+
+  <connectionStrings>
+
+    <add name ="stringConexao" providerName="System.Data.SqlClient" connectionString="Data Source=PC;Initial Catalog=Veiculos;Persist Security Info=True;User ID=admin;Password=02ifp4ut;" />
+  </connectionStrings>
+
+Nome do Servidor: PC
+Logon: admin
+Senha: 02ifp4ut
+
+//Credenciais para logar na aplicação Web:
+
+---> Administrador <---
+Credencial: admin
+Senha: admin
+
+---> Operador <---
+Credencial: operador
+Senha: operador
+
+Administrador ---> Tem todo acesso ao CRUD.
+Operador ---> Tem acesso apenas á lista dos Veiculos cadastrados. 
+
+Quaisquer dúvidas estou á disposição. 
