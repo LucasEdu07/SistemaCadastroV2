@@ -1,0 +1,20 @@
+﻿@model SistemaCadastro.Models.Combustivel
+
+@{
+    ViewBag.Title = "Adicionar Combustível";
+}
+
+<h2>Adicionar Combustível</h2>
+
+@using (Html.BeginForm("Adicionar", "Combustivel", FormMethod.Post))
+{
+    @Html.AntiForgeryToken() <!-- Incluindo o token antifalsificação -->
+
+    <div class="form-group">
+        @Html.LabelFor(m => m.Nome)
+        @Html.TextBoxFor(m => m.Nome, new { @class = "form-control", placeholder = "Digite o nome do combustível" })
+    </div>
+
+    <button type="submit" class="btn btn-primary">Adicionar</button>
+    <a href="@Url.Action("ListarCombustivel", "Combustivel")" class="btn btn-secondary">Cancelar</a>
+}

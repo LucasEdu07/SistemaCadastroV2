@@ -1,0 +1,21 @@
+﻿
+@model SistemaCadastro.Models.Cor
+
+@{
+    ViewBag.Title = "Adicionar Cor";
+}
+
+<h2>Adicionar Cor</h2>
+
+@using (Html.BeginForm("Adicionar", "Cor", FormMethod.Post))
+{
+    @Html.AntiForgeryToken()
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.NomeCor)
+        @Html.TextBoxFor(model => model.NomeCor, new { @class = "form-control" })
+        @Html.ValidationMessageFor(model => model.NomeCor)
+    </div>
+
+    <button type="submit" class="btn btn-primary">Salvar</button>
+}

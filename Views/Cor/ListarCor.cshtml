@@ -1,0 +1,62 @@
+﻿@model IEnumerable<SistemaCadastro.Models.Cor>
+
+@{
+    ViewBag.Title = "Listar Cores";
+}
+
+<div class="container">
+    <div class="row justify-content-end mb-3">
+        <div class="col-auto">
+            <a href="@Url.Action("ObterVeiculos", "Veiculos")" class="btn btn-danger">Voltar ao Menu Principal</a>
+        </div>
+        <div class="col-auto">
+            <a href="@Url.Action("Adicionar", "Cor")" class="btn btn-success">Adicionar nova Cor</a>
+        </div>
+    </div>
+
+    <div class="table-responsive">
+        <table class="table table-striped">
+            <thead class="thead-dark">
+                <tr>
+                    <th>ID</th>
+                    <th>Nome da Cor</th>
+                    <th class="col-auto">Opções</th>
+                </tr>
+            </thead>
+            @if (Model != null && Model.Any())
+            {
+                <tbody>
+                    @foreach (var cor in Model)
+                    {
+                        <tr>
+                            <td>@cor.CorId</td>
+                            <td>@cor.NomeCor</td>
+                            <td>
+                                <div class="btn-group" role="group">
+                                    <a href="@Url.Action("Editar", new { id = cor.CorId })" class="btn btn-primary">Editar</a>
+                                    <button type="button" class="btn btn-danger" onclick="confirmDelete('@Url.Action("Excluir", new { id = cor.CorId })')">Excluir</button>
+                                </div>
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            }
+            else
+            {
+                <tbody>
+                    <tr>
+                        <td colspan="3">Nenhuma cor encontrada. <a href="@Url.Action("Adicionar")">Adicione uma nova cor.</a></td>
+                    </tr>
+                </tbody>
+            }
+        </table>
+    </div>
+</div>
+
+@section Scripts {
+    <script>function confirmDelete(url) {
+            if (confirm('Tem certeza que deseja excluir esta cor?')) {
+                window.location.href = url;
+            }
+        }</script>
+}

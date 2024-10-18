@@ -1,0 +1,61 @@
+﻿@model IEnumerable<SistemaCadastro.Models.Combustivel>
+
+<div class="container">
+    <div class="row justify-content-end mb-3">
+        <div class="col-auto">
+            <a href="@Url.Action("ObterVeiculos", "Veiculos")" class="btn btn-danger">Voltar ao Menu Princpal</a>
+        </div>
+        <div class="col-auto">
+            <a href="@Url.Action("Adicionar", "Combustivel")" class="btn btn-success">Adicionar novo Combustível</a>
+        </div>
+    </div>
+
+    <div class="table-responsive">
+        <table class="table table-striped">
+            <thead class="thead-dark">
+                <tr>
+                    <th>ID</th>
+                    <th>Nome do Combustível</th>
+                    <th class="col-auto">Opções</th>
+                </tr>
+            </thead>
+            @if (Model != null && Model.Any())
+            {
+                <tbody>
+                    @foreach (var item in Model)
+                    {
+                        <tr>
+                            <td>@item.CombustivelId</td>
+                            <td>@item.Nome</td>
+                            <td>
+                                <div class="btn-group" role="group">
+                                    <a href="@Url.Action("Editar", new { id = item.CombustivelId })" class="btn btn-primary">Editar</a>
+                                    @*<button type="button" class="btn btn-danger" onclick="confirmDelete('@Url.Action("Excluir", new { id = item.CombustivelId })')">Excluir</button>*@
+                                </div>
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            }
+            else
+            {
+
+                <tbody>
+                    <tr>
+                        <td colspan="3">Nenhum combustível encontrado. <a href="@Url.Action("Adicionar")">Adicione um novo combustível.</a></td>
+                    </tr>
+                </tbody>
+            }
+        </table>
+    </div>
+</div>
+
+@section Scripts {
+    <script>
+        function confirmDelete(url) {
+            if (confirm('Tem certeza que deseja excluir este combustível?')) {
+                window.location.href = url;
+            }
+        }
+    </script>
+}

@@ -1,0 +1,49 @@
+﻿body {
+    padding-top: 50px;
+    padding-bottom: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh; /* Faz a tela ocupar toda a altura */
+    background-color: #f8f9fa; /* Cor de fundo suave */
+    margin: 0; /* Remove margens padrão */
+}
+
+.login-container {
+    background-color: white; /* Cor de fundo do formulário */
+    padding: 20px;
+    border-radius: 8px; /* Bordas arredondadas */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Sombra suave */
+    width: 300px; /* Largura do formulário */
+}
+
+h2 {
+    margin-bottom: 20px; /* Espaço abaixo do título */
+}
+
+.form-group {
+    margin-bottom: 15px; /* Espaçamento entre os grupos de input */
+}
+
+input,
+select,
+textarea {
+    width: 100%; /* Garante que o input ocupe toda a largura do container */
+    padding: 10px; /* Adiciona espaçamento interno aos inputs */
+    border: 1px solid #ccc; /* Borda padrão */
+    border-radius: 4px; /* Bordas arredondadas para os inputs */
+}
+
+.btn-login {
+    background-color: #003366; /* Azul marinho */
+    color: white; /* Cor do texto do botão */
+    border: none; /* Remove a borda padrão */
+    width: 100%; /* Botão ocupa toda a largura do container */
+    padding: 10px; /* Espaçamento interno */
+    cursor: pointer; /* Muda o cursor para pointer ao passar sobre o botão */
+    transition: background-color 0.3s; /* Efeito suave na cor do fundo */
+}
+
+    .btn-login:hover {
+        background-color: #002244; /* Cor ao passar o mouse */
+    }
