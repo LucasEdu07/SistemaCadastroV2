@@ -1,8 +1,7 @@
-﻿using System;
+﻿using SistemaCadastro.Models;
 using System.Collections.Generic;
-using System.Configuration; // Adicionado para acessar o Web.config
+using System.Configuration;
 using System.Data.SqlClient;
-using SistemaCadastro.Models;
 
 namespace SistemaCadastro.Repos
 {
@@ -10,13 +9,11 @@ namespace SistemaCadastro.Repos
     {
         private string connectionString;
 
-        // Constructor sem parâmetro que obtém a string de conexão do Web.config
         public CombustivelRepo()
         {
             connectionString = ConfigurationManager.ConnectionStrings["stringConexao"].ConnectionString;
         }
 
-        // Método para obter todos os combustíveis
         public List<Combustivel> GetAll()
         {
             List<Combustivel> combustiveis = new List<Combustivel>();
@@ -39,7 +36,6 @@ namespace SistemaCadastro.Repos
             return combustiveis;
         }
 
-        // Método para adicionar um novo combustível
         public void Add(Combustivel combustivel)
         {
             using (SqlConnection connection = new SqlConnection(connectionString))
@@ -51,7 +47,6 @@ namespace SistemaCadastro.Repos
             }
         }
 
-        // Método para buscar combustível por ID
         public Combustivel GetById(int id)
         {
             Combustivel combustivel = null;
@@ -75,7 +70,6 @@ namespace SistemaCadastro.Repos
             return combustivel;
         }
 
-        // Método para atualizar um combustível existente
         public void Update(Combustivel combustivel)
         {
             using (SqlConnection connection = new SqlConnection(connectionString))
@@ -88,24 +82,23 @@ namespace SistemaCadastro.Repos
             }
         }
 
-        // Método para deletar um combustível
-        public bool Delete(int id)
-        {
-            int rowsAffected;
+        //public bool Delete(int id)
+        //{
+        //    int rowsAffected;
 
-            string query = "DELETE FROM Combustivel WHERE CombustivelId = @CombustivelId";
+        //    string query = "DELETE FROM Combustivel WHERE CombustivelId = @CombustivelId";
 
-            using (SqlConnection connection = new SqlConnection(connectionString))
-            {
-                using (SqlCommand command = new SqlCommand(query, connection))
-                {
-                    command.Parameters.AddWithValue("@CombustivelId", id);
-                    connection.Open();
-                    rowsAffected = command.ExecuteNonQuery();
-                }
-            }
+        //    using (SqlConnection connection = new SqlConnection(connectionString))
+        //    {
+        //        using (SqlCommand command = new SqlCommand(query, connection))
+        //        {
+        //            command.Parameters.AddWithValue("@CombustivelId", id);
+        //            connection.Open();
+        //            rowsAffected = command.ExecuteNonQuery();
+        //        }
+        //    }
 
-            return rowsAffected >= 1;
-        }
+        //    return rowsAffected >= 1;
+        //}  ==>>> Algo futuo pode vir disso ??? Vamos ver... É que na minha cabeça não faz sentido excluir Colunas, MAS sim Editar por outro Combustivel
     }
 }

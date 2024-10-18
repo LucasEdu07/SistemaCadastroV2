@@ -6,9 +6,9 @@
 
 <div class="container">
     <div class="row justify-content-end mb-3">
-        <!-- Botão de Encerrar Sessão -->
+
         <div class="row justify-content-end align-items-center mb-3">
-            <!-- Botão de Encerrar Sessão -->
+
             <div class="col-auto">
                 <form action="/Usuarios/Logout" method="post" style="display: inline;">
                     <button type="submit" class="btn btn-danger" style="margin-top: 20px;">Encerrar Sessão</button>
@@ -17,20 +17,20 @@
 
             @if (tipoUsuario == "Administrador")
             {
-                <div class="col-auto">
-                    <br />
-                    <a href="@Url.Action("IncluirVeiculo")" class="btn btn-success">Adicionar novo Veículo</a>
-                </div>
+            <div class="col-auto">
+                <br />
+                <a href="@Url.Action("IncluirVeiculo")" class="btn btn-success">Adicionar novo Veículo</a>
+            </div>
 
-                <div class="col-auto">
-                    <br />
-                    <a href="@Url.Action("ListarCombustivel", "Combustivel")" class="btn btn-info">Gerenciar Combustíveis</a>
-                </div>
+            <div class="col-auto">
+                <br />
+                <a href="@Url.Action("ListarCombustivel", "Combustivel")" class="btn btn-info">Gerenciar Combustíveis</a>
+            </div>
 
-                <div class="col-auto">
-                    <br />
-                    <a href="@Url.Action("ListarCor", "Cor")" class="btn btn-info">Gerenciar Cores</a>
-                </div>
+            <div class="col-auto">
+                <br />
+                <a href="@Url.Action("ListarCor", "Cor")" class="btn btn-info">Gerenciar Cores</a>
+            </div>
             }
         </div>
 
@@ -49,61 +49,59 @@
                         <th>Status</th>
                         @if (tipoUsuario == "Administrador")
                         {
-                            <th class="col-auto">Opções</th>
+                        <th class="col-auto">Opções</th>
                         }
                     </tr>
                 </thead>
                 @if (Model != null && Model.Any())
                 {
-                    <tbody>
-                        @foreach (var item in Model)
+                <tbody>
+                    @foreach (var item in Model)
                         {
-                            <tr>
-                                <td>@item.Placa</td>
-                                <td>@item.Renavam</td>
-                                <td>@item.Chassi</td>
-                                <td>@item.Marca</td>
-                                <td>@item.Modelo</td>
-                                <td>@item.Combustivel</td>
-                                <td>@item.Cor</td>
-                                <td>@item.Ano</td>
-                                <td>@item.Status</td>
-                                @if (tipoUsuario == "Administrador")
+                    <tr>
+                        <td>@item.Placa</td>
+                        <td>@item.Renavam</td>
+                        <td>@item.Chassi</td>
+                        <td>@item.Marca</td>
+                        <td>@item.Modelo</td>
+                        <td>@item.Combustivel</td>
+                        <td>@item.Cor</td>
+                        <td>@item.Ano</td>
+                        <td>@item.Status</td>
+                        @if (tipoUsuario == "Administrador")
                                 {
-                                    <td>
-                                        <div class="btn-group" role="group">
-                                            <a href="@Url.Action("AtualizarVeiculo", new { id = item.VeiculosId })" class="btn btn-primary">Editar</a>
-                                            <button type="button" class="btn btn-danger" onclick="confirmDelete('@Url.Action("ExcluirVeiculo", new { id = item.VeiculosId })')">Excluir</button>
-                                        </div>
-                                    </td>
+                        <td>
+                            <div class="btn-group" role="group">
+                                <a href="@Url.Action("AtualizarVeiculo", new { id = item.VeiculosId })" class="btn btn-primary">Editar</a>
+                                <button type="button" class="btn btn-danger" onclick="confirmDelete('@Url.Action("ExcluirVeiculo", new { id = item.VeiculosId })')">Excluir</button>
+                            </div>
+                        </td>
                                 }
-                            </tr>
+                    </tr>
                         }
-                    </tbody>
+                </tbody>
                 }
                 else
                 {
-                    <tbody>
-                        <tr>
-                            <td colspan="@((tipoUsuario == "Administrador") ? 10 : 9)">
-                                Nenhum veículo encontrado.
-                                @if (tipoUsuario == "Administrador")
+                <tbody>
+                    <tr>
+                        <td colspan="@((tipoUsuario == "Administrador") ? 10 : 9)">
+                            Nenhum veículo encontrado.
+                            @if (tipoUsuario == "Administrador")
                                 {
-                                    <a href="@Url.Action("IncluirVeiculo")">Adicione um novo veículo.</a>
+                            <a href="@Url.Action("IncluirVeiculo")">Adicione um novo veículo.</a>
                                 }
-                            </td>
-                        </tr>
-                    </tbody>
+                        </td>
+                    </tr>
+                </tbody>
                 }
             </table>
         </div>
     </div>
 </div>
 
-<script>
-    function confirmDelete(url) {
+<script>function confirmDelete(url) {
         if (confirm('Tem certeza que deseja excluir este veículo?')) {
             window.location.href = url;
         }
-    }
-</script>
+    }</script>

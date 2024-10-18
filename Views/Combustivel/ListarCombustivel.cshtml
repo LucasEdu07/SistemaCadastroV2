@@ -30,7 +30,6 @@
                             <td>
                                 <div class="btn-group" role="group">
                                     <a href="@Url.Action("Editar", new { id = item.CombustivelId })" class="btn btn-primary">Editar</a>
-                                    @*<button type="button" class="btn btn-danger" onclick="confirmDelete('@Url.Action("Excluir", new { id = item.CombustivelId })')">Excluir</button>*@
                                 </div>
                             </td>
                         </tr>
@@ -52,10 +51,9 @@
 
 @section Scripts {
     <script>
-        function confirmDelete(url) {
+    function confirmDelete(url) {
             if (confirm('Tem certeza que deseja excluir este combustível?')) {
                 window.location.href = url;
             }
-        }
-    </script>
+        }</script>
 }

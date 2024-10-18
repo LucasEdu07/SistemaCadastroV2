@@ -12,7 +12,7 @@ namespace SistemaCadastro
             routes.MapRoute(
                 name: "Default",
                 url: "{controller}/{action}/{id}",
-                defaults: new { controller = "Usuarios", action = "Login", id = UrlParameter.Optional } // Mudando para Usuarios e Login
+                defaults: new { controller = "Usuarios", action = "Login", id = UrlParameter.Optional }
             );
         }
     }

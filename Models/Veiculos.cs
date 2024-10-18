@@ -19,7 +19,6 @@ namespace SistemaCadastro.Models
 
         public string Modelo { get; set; }
 
-        // Agora a propriedade Combustivel é um tipo string que representa o nome do combustível
         public string Combustivel { get; set; }
 
         public string Cor { get; set; }

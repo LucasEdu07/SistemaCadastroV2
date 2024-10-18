@@ -1,7 +1,7 @@
 ﻿using SistemaCadastro.Models;
+using System;
 using System.Configuration;
 using System.Data.SqlClient;
-using System;
 
 public class UsuarioRepo
 {
@@ -18,10 +18,10 @@ public class UsuarioRepo
 
         using (SqlConnection conn = new SqlConnection(connectionString))
         {
-            string query = "SELECT * FROM Usuarios WHERE NomeUsuario = @NomeUsuario AND Senha = @Senha"; // Alterado para verificar a senha diretamente
+            string query = "SELECT * FROM Usuarios WHERE NomeUsuario = @NomeUsuario AND Senha = @Senha";
             SqlCommand cmd = new SqlCommand(query, conn);
             cmd.Parameters.AddWithValue("@NomeUsuario", nomeUsuario);
-            cmd.Parameters.AddWithValue("@Senha", senha); // Adicionando a senha como parâmetro
+            cmd.Parameters.AddWithValue("@Senha", senha);
 
             conn.Open();
             SqlDataReader reader = cmd.ExecuteReader();

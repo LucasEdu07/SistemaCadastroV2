@@ -25,28 +25,28 @@
             </thead>
             @if (Model != null && Model.Any())
             {
-                <tbody>
-                    @foreach (var cor in Model)
+            <tbody>
+                @foreach (var cor in Model)
                     {
-                        <tr>
-                            <td>@cor.CorId</td>
-                            <td>@cor.NomeCor</td>
-                            <td>
-                                <div class="btn-group" role="group">
-                                    <a href="@Url.Action("Editar", new { id = cor.CorId })" class="btn btn-primary">Editar</a>
-                                </div>
-                            </td>
-                        </tr>
+                <tr>
+                    <td>@cor.CorId</td>
+                    <td>@cor.NomeCor</td>
+                    <td>
+                        <div class="btn-group" role="group">
+                            <a href="@Url.Action("Editar", new { id = cor.CorId })" class="btn btn-primary">Editar</a>
+                        </div>
+                    </td>
+                </tr>
                     }
-                </tbody>
+            </tbody>
             }
             else
             {
-                <tbody>
-                    <tr>
-                        <td colspan="3">Nenhuma cor encontrada. <a href="@Url.Action("Adicionar")">Adicione uma nova cor.</a></td>
-                    </tr>
-                </tbody>
+            <tbody>
+                <tr>
+                    <td colspan="3">Nenhuma cor encontrada. <a href="@Url.Action("Adicionar")">Adicione uma nova cor.</a></td>
+                </tr>
+            </tbody>
             }
         </table>
     </div>

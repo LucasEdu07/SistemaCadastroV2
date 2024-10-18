@@ -4,46 +4,46 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 100vh; /* Faz a tela ocupar toda a altura */
-    background-color: #f8f9fa; /* Cor de fundo suave */
-    margin: 0; /* Remove margens padrão */
+    height: 100vh;
+    background-color: #f8f9fa;
+    margin: 0;
 }
 
 .login-container {
-    background-color: white; /* Cor de fundo do formulário */
+    background-color: white;
     padding: 20px;
-    border-radius: 8px; /* Bordas arredondadas */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Sombra suave */
-    width: 300px; /* Largura do formulário */
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    width: 300px;
 }
 
 h2 {
-    margin-bottom: 20px; /* Espaço abaixo do título */
+    margin-bottom: 20px;
 }
 
 .form-group {
-    margin-bottom: 15px; /* Espaçamento entre os grupos de input */
+    margin-bottom: 15px;
 }
 
 input,
 select,
 textarea {
-    width: 100%; /* Garante que o input ocupe toda a largura do container */
-    padding: 10px; /* Adiciona espaçamento interno aos inputs */
-    border: 1px solid #ccc; /* Borda padrão */
-    border-radius: 4px; /* Bordas arredondadas para os inputs */
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
 }
 
 .btn-login {
-    background-color: #003366; /* Azul marinho */
-    color: white; /* Cor do texto do botão */
-    border: none; /* Remove a borda padrão */
-    width: 100%; /* Botão ocupa toda a largura do container */
-    padding: 10px; /* Espaçamento interno */
-    cursor: pointer; /* Muda o cursor para pointer ao passar sobre o botão */
-    transition: background-color 0.3s; /* Efeito suave na cor do fundo */
+    background-color: #003366;
+    color: white;
+    border: none;
+    width: 100%;
+    padding: 10px;
+    cursor: pointer;
+    transition: background-color 0.3s;
 }
 
     .btn-login:hover {
-        background-color: #002244; /* Cor ao passar o mouse */
+        background-color: #002244;
     }

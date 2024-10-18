@@ -1,7 +1,7 @@
 ﻿@model SistemaCadastro.Models.Usuarios
 
 @{
-    Layout = null; // Isso remove qualquer layout aplicado à página
+    Layout = null;
 }
 
 <!DOCTYPE html>
@@ -12,46 +12,46 @@
     <link rel="stylesheet" href="~/Content/site.css" />
     <style>
         body {
-            overflow: hidden; /* Remove a barra de rolagem */
-            display: flex; /* Usado para centralizar o conteúdo */
-            justify-content: center; /* Centraliza horizontalmente */
-            align-items: center; /* Centraliza verticalmente */
-            height: 100vh; /* Altura da tela */
-            margin: 0; /* Remove margens padrão */
-            background-color: #f0f0f0; /* Cor de fundo da página */
+            overflow: hidden;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #f0f0f0;
         }
 
         .login-container {
-            max-width: 400px; /* Largura máxima do formulário */
+            max-width: 400px;
             padding: 20px;
             border: 1px solid #ccc;
             border-radius: 8px;
-            background-color: #f9f9f9; /* Cor de fundo */
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); /* Sombra sutil */
+            background-color: #f9f9f9;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
         }
 
         .form-group {
-            margin-bottom: 15px; /* Espaçamento entre os grupos */
+            margin-bottom: 15px;
         }
 
         input[type="submit"] {
-            background-color: #003366; /* Azul marinho */
-            color: white; /* Cor do texto */
-            border: none; /* Sem borda */
-            padding: 10px 15px; /* Espaçamento interno */
-            border-radius: 5px; /* Bordas arredondadas */
-            cursor: pointer; /* Muda o cursor para indicar um botão clicável */
-            width: 100%; /* Largura total do botão */
+            background-color: #003366;
+            color: white;
+            border: none;
+            padding: 10px 15px;
+            border-radius: 5px;
+            cursor: pointer;
+            width: 100%;
         }
 
             input[type="submit"]:hover {
-                background-color: #00509e; /* Cor ao passar o mouse */
+                background-color: #00509e;
             }
 
         .form-control {
-            width: 100%; /* Largura total do input */
-            padding: 10px; /* Espaçamento interno */
-            box-sizing: border-box; /* Inclui padding e borda no tamanho total */
+            width: 100%;
+            padding: 10px;
+            box-sizing: border-box;
         }
     </style>
 </head>
@@ -60,19 +60,19 @@
         <h2 style="text-align:center;">Login</h2>
         @using (Html.BeginForm("Login", "Usuarios", FormMethod.Post))
         {
-            <div class="form-group">
-                @Html.LabelFor(model => model.NomeUsuario, "Credencial") <!-- Mudou o rótulo para "Credencial" -->
-                @Html.TextBoxFor(model => model.NomeUsuario, new { @class = "form-control" })
-            </div>
+        <div class="form-group">
+            @Html.LabelFor(model => model.NomeUsuario, "Credencial")
+            @Html.TextBoxFor(model => model.NomeUsuario, new { @class = "form-control" })
+        </div>
 
-            <div class="form-group">
-                @Html.LabelFor(model => model.Senha)
-                @Html.PasswordFor(model => model.Senha, new { @class = "form-control" })
-            </div>
+        <div class="form-group">
+            @Html.LabelFor(model => model.Senha)
+            @Html.PasswordFor(model => model.Senha, new { @class = "form-control" })
+        </div>
 
-            <div class="form-group" style="text-align:center;">
-                <input type="submit" value="Entrar" class="btn btn-primary" />
-            </div>
+        <div class="form-group" style="text-align:center;">
+            <input type="submit" value="Entrar" class="btn btn-primary" />
+        </div>
         }
     </div>
 </body>

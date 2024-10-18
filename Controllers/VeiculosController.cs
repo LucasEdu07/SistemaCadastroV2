@@ -1,4 +1,4 @@
-﻿using SistemaCadastro.Filters; // Adicione esta diretiva
+﻿using SistemaCadastro.Filters;
 using SistemaCadastro.Models;
 using SistemaCadastro.Repo;
 using SistemaCadastro.Repos;
@@ -10,19 +10,18 @@ using System.Web.Mvc;
 
 namespace SistemaCadastro.Controllers
 {
-    [Autorizacao] // Aplica o filtro de autorização
+    [Autorizacao]
     public class VeiculosController : Controller
     {
         private VeiculosRepo _repositorio;
         private CombustivelRepo _combustivelRepo;
-        private CorRepo _corRepo; // Adicionei o repositório de cores
+        private CorRepo _corRepo;
 
-        // Construtor que inicializa os repositórios
         public VeiculosController()
         {
-            _repositorio = new VeiculosRepo(); // Usando o construtor padrão
-            _combustivelRepo = new CombustivelRepo(); // Ajuste conforme necessário
-            _corRepo = new CorRepo(); // Inicialize o repositório de cores
+            _repositorio = new VeiculosRepo();
+            _combustivelRepo = new CombustivelRepo();
+            _corRepo = new CorRepo();
         }
 
         public ActionResult ObterVeiculos()
@@ -40,7 +39,7 @@ namespace SistemaCadastro.Controllers
                 return new HttpUnauthorizedResult();
             }
 
-            RecarregarDropdowns(); // Recarrega as listas de dropdown
+            RecarregarDropdowns();
             return View();
         }
 
@@ -168,15 +167,14 @@ namespace SistemaCadastro.Controllers
         {
             ViewBag.CombustivelList = _combustivelRepo.GetAll().Select(c => new SelectListItem
             {
-                Value = c.Nome, // Aqui, você deve usar o ID do combustível
-                Text = c.Nome   // O texto mostrado ao usuário
+                Value = c.Nome,
+                Text = c.Nome
             });
 
-            // Carregar a lista de cores
             ViewBag.CorList = _corRepo.GetAll().Select(c => new SelectListItem
             {
-                Value = c.NomeCor, // Use o ID da cor
-                Text = c.NomeCor           // O texto mostrado ao usuário
+                Value = c.NomeCor,
+                Text = c.NomeCor
             });
 
             ViewBag.StatusList = new List<SelectListItem>

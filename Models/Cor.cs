@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
-using System.Linq;
-using System.Web;
+﻿using System.ComponentModel.DataAnnotations;
 
 namespace SistemaCadastro.Models
 {
@@ -13,6 +9,6 @@ namespace SistemaCadastro.Models
 
         [Required(ErrorMessage = "O nome da cor é obrigatória.")]
         [Display(Name = "Nome")]
-        public string NomeCor {  get; set; }
+        public string NomeCor { get; set; }
     }
 }

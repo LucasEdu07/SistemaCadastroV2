@@ -11,13 +11,11 @@ namespace SistemaCadastro.Repo
         private SqlConnection _con;
         private string connectionString;
 
-        // Construtor que aceita string de conexão
         public VeiculosRepo(string connectionString)
         {
             this.connectionString = connectionString;
         }
 
-        // Construtor padrão
         public VeiculosRepo() : this(ConfigurationManager.ConnectionStrings["stringConexao"].ToString())
         {
         }
@@ -31,7 +29,7 @@ namespace SistemaCadastro.Repo
         {
             Connection();
 
-            string query = @"INSERT INTO Veiculos 
+            string query = @"INSERT INTO Veiculos
                      (Placa, Renavam, Chassi, Motor, Marca, Modelo, Combustivel, Cor, Ano, Situacao)
                      VALUES
                      (@Placa, @Renavam, @Chassi, @Motor, @Marca, @Modelo, @Combustivel, @Cor, @Ano, @Situacao)";
@@ -102,15 +100,15 @@ namespace SistemaCadastro.Repo
 
             int rowsAffected;
 
-            string query = @"UPDATE Veiculos SET 
-                    Placa = @Placa, 
-                    Renavam = @Renavam, 
-                    Chassi = @Chassi, 
+            string query = @"UPDATE Veiculos SET
+                    Placa = @Placa,
+                    Renavam = @Renavam,
+                    Chassi = @Chassi,
                     Motor = @Motor,
                     Marca = @Marca,
                     Modelo = @Modelo,
-                    Combustivel = @Combustivel, 
-                    Cor = @Cor, 
+                    Combustivel = @Combustivel,
+                    Cor = @Cor,
                     Ano = @Ano,
                     Situacao = @Situacao
                     WHERE VeiculosId = @VeiculoId";

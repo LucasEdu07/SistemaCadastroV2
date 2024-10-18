@@ -1,8 +1,7 @@
-﻿using System.Collections.Generic;
-using System.Web.Mvc;
-using SistemaCadastro.Models;
-using SistemaCadastro.Repo;
+﻿using SistemaCadastro.Models;
 using SistemaCadastro.Repos;
+using System.Collections.Generic;
+using System.Web.Mvc;
 
 namespace SistemaCadastro.Controllers
 {
@@ -18,7 +17,7 @@ namespace SistemaCadastro.Controllers
         public ActionResult ListarCor()
         {
             List<Cor> cores = repo.GetAll();
-            return View(cores); // Retornando a lista de cores para a view
+            return View(cores);
         }
 
         public ActionResult Adicionar()

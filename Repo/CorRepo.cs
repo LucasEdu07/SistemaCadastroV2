@@ -1,7 +1,7 @@
-﻿using System.Collections.Generic;
+﻿using SistemaCadastro.Models;
+using System.Collections.Generic;
 using System.Configuration;
 using System.Data.SqlClient;
-using SistemaCadastro.Models;
 
 namespace SistemaCadastro.Repos
 {
@@ -16,7 +16,7 @@ namespace SistemaCadastro.Repos
 
         public List<Cor> GetAll()
         {
-            List<Cor> cores = new List<Cor>(); // Inicializando a lista
+            List<Cor> cores = new List<Cor>();
 
             using (SqlConnection connection = new SqlConnection(connectionString))
             {
@@ -28,7 +28,7 @@ namespace SistemaCadastro.Repos
                     cores.Add(new Cor
                     {
                         CorId = (int)reader["CorId"],
-                        NomeCor = reader["NomeCor"].ToString() // Corrigido para NomeCor
+                        NomeCor = reader["NomeCor"].ToString()
                     });
                 }
             }

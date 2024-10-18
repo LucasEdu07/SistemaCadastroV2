@@ -8,9 +8,9 @@
 
 @using (Html.BeginForm("Editar", "Combustivel", FormMethod.Post))
 {
-    @Html.AntiForgeryToken() <!-- Incluindo o token antifalsificação -->
+    @Html.AntiForgeryToken()
 
-    @Html.HiddenFor(m => m.CombustivelId) <!-- Campo oculto para o ID do combustível -->
+    @Html.HiddenFor(m => m.CombustivelId)
 
     <div class="form-group">
         @Html.LabelFor(m => m.Nome)
